@@ -7,12 +7,15 @@ on:
 
 jobs:
   schedule_pipelines:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [nora, rudbeck]
 
+    runs-on: ubuntu-latest
     permissions:
       pages: write
       contents: write
-
+    environment: ${{ matrix.environment }}
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4
