@@ -302,7 +302,7 @@ def backfill_predictions_for_monitoring(weather_fg, air_quality_df, monitor_fg, 
 def backfill_predictions_for_monitoring_with_lagged_aq(weather_fg, air_quality_df, monitor_fg, model):
     features_df = weather_fg.read()
     features_df = features_df.sort_values(by=['date'], ascending=True)
-    feats_with_aq_df = pd.merge(features_df, air_quality_df.sort_values(by=['date'], ascending=True), on='date')
+    feats_with_aq_df = pd.merge(features_df, air_quality_df[['date', 'pm25_lag_1', 'pm25_lag_2', 'pm25_lag_3']].sort_values(by=['date'], ascending=True), on='date')
     feats_with_aq_df = feats_with_aq_df.tail(10)
     feats_with_aq_df['predicted_pm25'] = model.predict(feats_with_aq_df[['pm25_lag_1', 'pm25_lag_2', 'pm25_lag_3', 'temperature_2m_mean', 'precipitation_sum', 'wind_speed_10m_max', 'wind_direction_10m_dominant']])
     df = pd.merge(feats_with_aq_df, air_quality_df[['date','pm25','street','country']], on="date")
