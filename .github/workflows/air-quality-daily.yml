@@ -33,6 +33,10 @@ jobs:
       - name: execute python workflows from bash script
         env:
           HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+          AQICN_CITY: ${{ vars.AQICN_CITY }}
+          AQICN_COUNTRY: ${{ vars.AQICN_COUNTRY }}
+          AQICN_STREET: ${{ vars.AQICN_STREET }}
+          AQICN_URL: ${{ vars.AQICN_URL }}
         run: |
           make aq-inference
       - name: github pages publish
