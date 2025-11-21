@@ -1,4 +1,4 @@
-# Air Quality Dashboard
+# Air Quality Dashboard - Örebro län
 
 ![Hopsworks Logo](../titanic/assets/img/logo.png)
 
