@@ -26,6 +26,8 @@ conda activate book
 
 #### Lab Group 1337
 
+Dashboard: https://lukasfri.github.io/id2223-mlfs-book/air-quality/
+
 ## Lab Tasks Completed
 
 [x] Write a backfill feature pipeline that downloads historical weather data (ideally >1 year of data), loads a csv file with historical air quality data (downloaded from https://aqicn.org) and registers them as 2 Feature Groups with Hopsworks.
